@@ -31,7 +31,7 @@ y_pred_svc = svc.predict(x_test)
 
 end1 = time.time()
 svm_time = end1-start1
-'''
+
 # KNN Model
 start2 = time.time()
 
@@ -70,14 +70,14 @@ print("NN Time: {:0.2f} minute".format(nn_time/60.0))
 
 print("NB Time: {:0.2f} minute".format(nb_time/60.0))
 
-'''
+
 # SVM report and analysis
 svc_f1 = metrics.f1_score(y_test, y_pred_svc, average= "weighted")
 svc_accuracy = metrics.accuracy_score(y_test, y_pred_svc)
 print("-----------------SVM Report---------------")
 print("F1 score: {}".format(svc_f1))
 print("Accuracy score: {}".format(svc_accuracy))
-'''
+
 # KNN report and analysis
 knn_f1 = metrics.f1_score(y_test, y_pred_knn, average= "weighted")
 knn_accuracy = metrics.accuracy_score(y_test, y_pred_knn)
@@ -97,5 +97,3 @@ nb_accuracy = metrics.accuracy_score(y_test, y_pred_nb)
 print("-----------------Naive Bayes Report---------------")
 print("F1 score: {}".format(nb_f1))
 print("Accuracy score: {}".format(nb_accuracy))
-
-'''
