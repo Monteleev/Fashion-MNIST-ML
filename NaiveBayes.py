@@ -27,14 +27,14 @@ class NaiveBayes:
 
         for idx, c in enumerate(self._classes):
             prior = np.log(self._priors[idx])
-            class_conditional = np.sum(np.log(self._pdf(idx,x)))
+            class_conditional = np.prod(self.calculate(idx,x))
             posterior = prior+class_conditional
             posteriors.append(posterior)
 
         return self._classes[np.argmax(posteriors)]
 
 
-    def _pdf(self,class_idx, x):
+    def calculate(self,class_idx, x):
         mean = self._mean[class_idx]
         var = self._var[class_idx]
         num = np.exp(- ((x-mean)**2)/(2*(var)**2))
